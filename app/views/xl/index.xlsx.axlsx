@@ -1,0 +1,15 @@
+wb = xlsx_package.workbook
+process = book.styles.add_style( :fg_color => "428751", :type => :dxf )
+wb.add_worksheet(:name => 'Source de données') do |sheet|
+	case @planus_choisi 
+		when 138 
+		sheet.add_row ['Projet', 'Désignation', 'Description 1', 'Description 2', 'Description 3', 'Prix local', 'Poids local', 'Prix importé', 'Poids importé','Altitude', 'Remarque', 'Commentaire offre','Fournisseur'], :style => Axlsx::STYLE_THIN_BORDER
+		@prix.each do |p| 
+		sheet.add_row [p.projet.code_complet, p.item.designation, if p.item.description1.include? 's' then ((p.item.description1[/\d{2,}/].to_i*3600).to_s + ' m3/h') else p.item.description1 end,if p.item.description2.include? '°C' then p.item.description2 else p.item.description3 end, if p.item.description2.include? '°C' then p.item.description3 else p.item.description2 end, p.prix_local, p.poids_local, p.prix_importe,p.poids_importe, unless p.projet.condition == nil then p.projet.condition.altitude end,  p.remarque, p.offre.commentaire, p.offre.fournisseur.nom]
+		sheet.add_conditional_formatting('B:B', {:type => :cellIs, :operator => })
+		end
+		when 331
+		sheet.add_row ['Projet', 'Désignation', 'Description 1', 'Description 2', 'Description 3', 'Prix local', 'Poids local', 'Prix importé', 'Poids importé', 'Remarque', 'Commentaire offre','Fournisseur'], :style => Axlsx::STYLE_THIN_BORDER
+
+	end
+end

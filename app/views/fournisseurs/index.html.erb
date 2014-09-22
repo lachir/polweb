@@ -1,0 +1,30 @@
+<h1>Fournisseurs</h1>
+
+
+<div class="well"><%= link_to('Nouveau fournisseur', new_fournisseur_path) %></div>
+
+
+
+<%= grid(@fournisseurs_grid) do |g|
+
+  g.column name: 'Nom', attribute: 'nom' do |task|
+    link_to task.nom, fournisseur_path(task)
+  end
+
+  g.column name: 'Pays', attribute: 'pays' do |task|
+    task.pays
+  end
+  g.column do |task|
+    link_to('<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, fournisseur_path(task))
+    
+  end  
+
+  g.column do |task|
+    link_to('<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_fournisseur_path(task))
+    
+  end  
+  g.column do |task|
+
+  link_to('<i class="glyphicon glyphicon-trash"></i>'.html_safe, fournisseur_path(task), method: :delete, data: { confirm: 'Are you sure?' })
+   end
+end -%>

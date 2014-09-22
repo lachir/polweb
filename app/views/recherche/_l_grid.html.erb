@@ -1,0 +1,53 @@
+<%= grid(@lgrid) do |g|
+g.column name: 'Projet'.humanize, attribute: 'code_complet', model: 'Projet' do |task|
+	task.projet.code_complet
+end
+g.column name: 'fonction'.humanize, attribute: 'fonction' do |task|
+	task.fonction
+end
+g.column name: 'combustible_defaut_fr'.humanize, attribute: 'combustible_defaut_fr' do |task|
+	task.combustible_defaut_fr
+end
+g.column name: 'combustible_defaut_en'.humanize, attribute: 'combustible_defaut_en' do |task|
+	task.combustible_defaut_en
+end
+g.column name: 'pci_defaut'.humanize, attribute: 'pci_defaut' do |task|
+	task.pci_defaut
+end
+g.column name: 'unite_pci'.humanize, attribute: 'unite_pci' do |task|
+	task.unite_pci
+end
+g.column name: 'teneur_soufre_defaut'.humanize, attribute: 'teneur_soufre_defaut' do |task|
+	task.teneur_soufre_defaut
+end
+g.column name: 'teneur_chlore_defaut'.humanize, attribute: 'teneur_chlore_defaut' do |task|
+	task.teneur_chlore_defaut
+end
+g.column name: 'teneur_azote_defaut'.humanize, attribute: 'teneur_azote_defaut' do |task|
+	task.teneur_azote_defaut
+end
+g.column name: 'viscosite_defaut'.humanize, attribute: 'viscosite_defaut' do |task|
+	task.viscosite_defaut
+end
+g.column name: 'unite_viscosite'.humanize, attribute: 'unite_viscosite' do |task|
+	task.unite_viscosite
+end
+g.column name: 'teneur_asphaltenes_defaut'.humanize, attribute: 'teneur_asphaltenes_defaut' do |task|
+	task.teneur_asphaltenes_defaut
+end
+g.column name: 'densite'.humanize, attribute: 'densite' do |task|
+	task.densite
+end
+g.column name: 'unite_densite'.humanize, attribute: 'unite_densite' do |task|
+	task.unite_densite
+end
+g.column name: 'teneur_carbone_defaut'.humanize, attribute: 'teneur_carbone_defaut' do |task|
+	task.teneur_carbone_defaut
+end
+g.column name: 'teneur_hydrogene_defaut'.humanize, attribute: 'teneur_hydrogene_defaut' do |task|
+	task.teneur_hydrogene_defaut
+end
+g.column name: 'teneur_oxygene_defaut'.humanize, attribute: 'teneur_oxygene_defaut' do |task|
+	task.teneur_oxygene_defaut
+end
+end -%>

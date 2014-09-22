@@ -1,0 +1,42 @@
+<%= grid(@prix) do |g|
+
+  g.column name: 'Item', attribute: 'designation', model: 'Item' do |task|
+    unless task.item.code_planus == nil then
+       link_to(task.item.designation, controller: "codification", action: "recherche_des_items_avec_offre", id: task.item.code_planus)
+     else
+      task.item.designation
+     end
+  end
+    g.column name: 'Description 1', attribute: 'description1', model: 'Item' do |task|
+      task.item.description1
+  end
+      g.column name: 'Description 2', attribute: 'description1', model: 'Item' do |task|
+      task.item.description2
+  end
+      g.column name: 'Description 3', attribute: 'description1', model: 'Item' do |task|
+      task.item.description3
+  end
+  g.column name:'Poids local', attribute: 'poids_local' do |task|
+    task.poids_local
+
+  end
+  g.column name: 'Prix local', attribute: 'prix_local' do |task|
+    task.prix_local
+  end
+
+  g.column name: 'Devise locale', attribute: 'devise_local' do |task|
+    task.devise_local
+  end
+  g.column name: 'Poids importé', attribute: 'poids_importe' do |task|
+    task.poids_importe
+  end
+  g.column name: 'Prix importé', attribute: 'prix_importe' do |task|
+    task.prix_importe
+  end
+    g.column name: 'Devise importé', attribute: 'devise_importe' do |task|
+    task.devise_importe
+  end
+    g.column name: 'Remarque', attribute: 'remarque' do |task|
+    task.remarque
+  end
+end -%> 

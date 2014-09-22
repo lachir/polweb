@@ -1,0 +1,112 @@
+	<%= grid(@utilites_grid) do |g|
+
+
+		g.column in_csv: false do |u|
+			link_to('<i class="glyphicon glyphicon-pencil"></i>'.html_safe, [:edit, @projet, u])
+
+		end  
+		g.column in_csv: false do |u|
+
+
+
+			link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, [u.projet, u], method: :delete, data: { confirm: 'Are you sure?' }
+		end
+
+		g.column name: 'temp_eau_refroid'.humanize do |u|
+			u.temp_eau_refroid
+		end
+		g.column name: 'unite_temp_eau'.humanize do |u|
+			u.unite_temp_eau
+		end
+		g.column name: 'pression_eau_refroid'.humanize do |u|
+			u.pression_eau_refroid
+		end
+		g.column name: 'unite_pression_eau'.humanize do |u|
+			u.unite_pression_eau
+		end
+		g.column name: 'qualite_ph'.humanize do |u|
+			u.qualite_ph
+		end
+		g.column name: 'qualite_suspension'.humanize do |u|
+			u.qualite_suspension
+		end
+		g.column name: 'unite_solide_susp'.humanize do |u|
+			u.unite_solide_susp
+		end
+		g.column name: 'qualite_granul'.humanize do |u|
+			u.qualite_granul
+		end
+		g.column name: 'unite_granul'.humanize do |u|
+			u.unite_granul
+		end
+		g.column name: 'qualite_solide_dis'.humanize do |u|
+			u.qualite_solide_dis
+		end
+		g.column name: 'unite_solide_dis'.humanize do |u|
+			u.unite_solide_dis
+		end
+		g.column name: 'qualite_durete'.humanize do |u|
+			u.qualite_durete
+		end
+		g.column name: 'unite_durete'.humanize do |u|
+			u.unite_durete
+		end
+		g.column name: 'qualite_fer'.humanize do |u|
+			u.qualite_fer
+		end
+		g.column name: 'unite_fer'.humanize do |u|
+			u.unite_fer
+		end
+		g.column name: 'qualite_manganese'.humanize do |u|
+			u.qualite_manganese
+		end
+		g.column name: 'unite_manganese'.humanize do |u|
+			u.unite_manganese
+		end
+		g.column name: 'air_pression'.humanize do |u|
+			u.air_pression
+		end
+		g.column name: 'unite_pression'.humanize do |u|
+			u.unite_pression
+		end
+		g.column name: 'air_granul_poussiere'.humanize do |u|
+			u.air_granul_poussiere
+		end
+		g.column name: 'unite_granul_poussiere'.humanize do |u|
+			u.unite_granul_poussiere
+		end
+		g.column name: 'classe_norme'.humanize do |u|
+			u.classe_norme
+		end
+
+
+
+
+		g.last_row do |number_of_columns|
+			unless session[:ecriture]
+				link_to 'S\'authentifier', new_session_path									else
+
+link_to 'Importer des Utilités', import_utilites_path(:id_projet => @projet.id)			
+end
+		end
+
+
+		
+
+		g.last_row do |number_of_columns|
+			unless session[:ecriture]
+				link_to 'S\'authentifier', new_session_path									else
+
+				link_to('Nouvelle utilité', '#new_u', 'data-toggle' => 'modal') +  ' | ' + link_to('Importer des Utilités', import_utilites_path(:id_projet => @projet.id))		
+
+			end
+		end
+		g.blank_slate do
+			unless session[:ecriture]
+
+				link_to 'Il n\'y a pas de utilité', new_session_path
+			else
+
+				link_to 'Il n\'y a pas de utilité, en créer une nouvelle', '#new_u', 'data-toggle' => 'modal'
+			end end
+			end -%>

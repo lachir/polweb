@@ -1,0 +1,18 @@
+%h3 Offre pour le projet #{Projet.find_by_id(session[:id_projet]).code_complet} | #{link_to 'changer de projet', choix_du_projet_path}
+= simple_form_for @offre, :wrapper => 'inline_form', :html => { :class => 'form-inline',:multipart => true  } do |f|
+	= f.input :num_offre, label: false, placeholder: 'Numéro d\'offre'
+	= f.input :id_fournisseur, :collection => Fournisseur.all.order('nom ASC'), :value_method => :id,  :label_method =>:nom , :label => false, prompt: "Fournisseur", :validate => true
+	= f.input :date_offre, label: false, placeholder: 'Date JJ/MM/AAAA', :validate => true
+	= f.input :offre, label: false, placeholder: 'Offre', as: 'file'
+	= f.input :commentaire, label: false, placeholder: 'Commentaire'
+	%br
+	%h3 Items
+	#prix_poids
+		/
+			nesting (imbriquation) des attributs prix poids de l'offre
+		.links
+			= link_to_add_association '', f, :prix_poid, :render_options => {:wrapper => 'inline_form'}, :class => "glyphicon glyphicon-plus"
+		= f.simple_fields_for :prix_poid do |t|
+			= render 'prix_poid_fields', :f => t
+
+	= f.submit

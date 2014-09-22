@@ -1,0 +1,59 @@
+<%= grid(@offres_grid) do |g|
+
+  g.column name: 'Projet', attribute: 'code_complet', model: 'Projet', in_csv: false do |task|
+   link_to task.projet.code_complet +     task.projet.nom_code, projet_path(task.projet.id)
+  end
+    g.column name: 'Projet', attribute: 'code_complet', model: 'Projet', in_html: false do |task|
+  task.projet.code_complet +     task.projet.nom_code
+  end
+  g.column name:'Nom du fournisseur', attribute: 'nom', model: 'Fournisseur', in_html: false do |task|
+     task.fournisseur.nom
+  end
+  g.column name:'Nom du fournisseur', attribute: 'nom', model: 'Fournisseur', in_csv: false do |task|
+    link_to task.fournisseur.nom, fournisseur_path(task.fournisseur.id)
+  end
+
+  g.column name: 'Numéro d\'offre', attribute: 'num_offre', in_html: false do |task|
+     task.num_offre
+  end
+  g.column name: 'Numéro d\'offre', attribute: 'num_offre', in_csv: false do |task|
+    link_to task.num_offre, offre_path(task.id)
+  end
+
+  g.column name: 'Offre', attribute: 'offre', in_csv: false do |task|
+    unless task.offre == nil 
+      if (task.offre.include? "W:\\" )|| (task.offre.include? "KP05S105")
+      link_to task.offre.slice(/Consultations\\.*/), "file://///#{task.offre}".html_safe, :title => "Pour ouvrir le fichier faites clique-droit sur le lien, copier l'adresse du lien et coller-le dans un nouvel onglet", :id => "lol", :data => {:toggle => 'tooltip', :title => 'Pour ouvrir le fichier faites clic-droit sur le lien, copier l\'adresse du lien et collez-le dans un nouvel onglet'}, :class => 'link'
+    else 
+      link_to task.offre, ('/consult/'+ task.id_projet.to_s + '/' + task.offre)
+
+    end
+    end
+  end
+    g.column name: 'Offre', attribute: 'offre', in_html: false do |task|
+    unless task.offre == nil 
+      task.offre
+    end
+  end
+  g.column name: 'Date', attribute: 'date_offre', filter_type: :date_custom do |task|
+    task.date_offre
+  end
+  g.column name: 'Commentaire', attribute: 'commentaire' do |task|
+    task.commentaire
+  end
+g.column name: 'Contient' do |m|
+  ta = []
+  PrixPoid.where('id_offre =?', m.id).each do |o|
+    ta.push(Item.find_by_id(o.id_item).designation.slice(/[A-Z]{2}/))
+  end
+ta.uniq!
+ta.join(" - ")
+
+end
+   g.column in_csv: false do |task|
+    link_to('<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, offre_path(task))
+
+  end 
+
+
+end -%>

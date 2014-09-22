@@ -1,0 +1,21 @@
+<%= grid(@codification_g) do |g|
+   g.column, in_csv: false do |task|
+    link_to('<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, controller: "codification", action: "recherche_des_items", id: task.id)
+
+  end 
+     g.column, in_csv: false do |task|
+    link_to('<i class="glyphicon glyphicon-usd"></i>'.html_safe, controller: "codification", action: "recherche_des_items_avec_offre", id: task.id)
+
+  end 
+  g.column name: 'Désignation', attribute: 'designation_fr'
+    g.column name: 'Designation', attribute: 'designation_en'
+      g.column name: 'Planus', attribute: 'planus'
+g.column name: 'holcim fr', attribute: 'holcim_fr'
+g.column name: 'holcim en', attribute: 'holcim_en'
+g.column name: 'lafarge', attribute: 'lafarge'
+g.column name: 'peg', attribute: 'peg'
+for i in 1..20
+g.column name: 'client_' + i.to_s, attribute: 'client_' + i.to_s
+
+end
+end -%>

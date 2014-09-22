@@ -1,0 +1,24 @@
+.container 
+	.col-md-6
+		%p Programme écrit par #{mail_to 'clement.chiris@gadz.org', 'Clément Chiris', subjet: 'Rapport de bug sur Polflow'} en Ruby on Rails, sources du programme : #{ link_to 'https://github.com/lachir/polweb'}. Dépendances : 
+		%ul
+			%li un login valide sur le réseau pour utiliser l'authentification LDAP
+			%li un accès en écriture sur la base de donnée Polysius 
+			%li un reverse proxy du type nginx ou IIS pour servir l'application et ses assets plus rapidement
+		%p Lors d'un changement de base de donnée, veuillez exécuter ce code SQL :
+		%code
+			:plain
+				IF OBJECT_ID('dbo.GetNumbersRangeTwo') IS NOT NULL
+				DROP FUNCTION GetNumbersRangeTwo
+				GO
+
+				Create Function dbo.GetNumbersRangeTwo(@Data VarChar(8000))
+				Returns VarChar(8000)
+				AS
+				Begin	
+				    Return Left(
+				             SubString(@Data, PatIndex('%[0-9.-]%', @Data), 8000), 
+				             PatIndex('%[^0-9.-]%', SubString(@Data, PatIndex('%[0-9.-]%', @Data), 8000) + 'X')-1)
+				End
+
+				GO

@@ -1,0 +1,50 @@
+<%= grid(@mgrid) do |g|
+g.column name: 'Projet'.humanize, attribute: 'code_complet', model: 'Projet' do |task|
+	task.projet.code_complet
+end
+g.column name: 'matiere_fr'.humanize, attribute: 'matiere_fr' do |task|
+	task.matiere_fr
+end
+g.column name: 'matiere_en'.humanize, attribute: 'matiere_en' do |task|
+	task.matiere_en
+end
+g.column name: 'densite_convoyee'.humanize, attribute: 'densite_convoyee' do |task|
+	task.densite_convoyee
+end
+g.column name: 'densite_stockee'.humanize, attribute: 'densite_stockee' do |task|
+	task.densite_stockee
+end
+g.column name: 'densite_calcul'.humanize, attribute: 'densite_calcul' do |task|
+	task.densite_calcul
+end
+g.column name: 'unite_densite'.humanize, attribute: 'unite_densite' do |task|
+	task.unite_densite
+end
+g.column name: 'granulometrie'.humanize, attribute: 'granulometrie' do |task|
+	task.granulometrie
+end
+g.column name: 'unite_granulometrie'.humanize, attribute: 'unite_granulometrie' do |task|
+	task.unite_granulometrie
+end
+g.column name: 'humidite_min'.humanize, attribute: 'humidite_min' do |task|
+	task.humidite_min
+end
+g.column name: 'humidite_moy'.humanize, attribute: 'humidite_moy' do |task|
+	task.humidite_moy
+end
+g.column name: 'humidite_max'.humanize, attribute: 'humidite_max' do |task|
+	task.humidite_max
+end
+g.column name: 'temperature'.humanize, attribute: 'temperature' do |task|
+	task.temperature
+end
+g.column name: 'unite_temperature'.humanize, attribute: 'unite_temperature' do |task|
+	task.unite_temperature
+end
+g.column name: 'angle_talutage'.humanize, attribute: 'angle_talutage' do |task|
+	task.angle_talutage
+end
+g.column name: 'position_matiere'.humanize, attribute: 'position_matiere' do |task|
+	task.position_matiere
+end
+end -%>

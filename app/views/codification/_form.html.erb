@@ -1,0 +1,66 @@
+<div class="container">
+ <%= simple_form_for @codification, html: {role: 'form'} do |f| %>
+  <% if @codification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@codification.errors.count, "error") %> prohibited this codification from being saved:</h2>
+
+      <ul>
+      <% @codification.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.input :designation_fr, placeholder: :designation_fr.to_s.humanize %>
+<%= f.input :designation_en, placeholder: :designation_en.to_s.humanize %>
+<%= f.input :planus, placeholder: :planus.to_s.humanize %>
+<%= f.input :holcim_fr, placeholder: :holcim_fr.to_s.humanize %>
+<%= f.input :holcim_en, placeholder: :holcim_en.to_s.humanize %>
+<%= f.input :lafarge, placeholder: :lafarge.to_s.humanize %>
+<%= f.input :peg, placeholder: :peg.to_s.humanize %>
+<%= f.input :client_1, placeholder: :client_1.to_s.humanize %>
+<%= f.input :client_2, placeholder: :client_2.to_s.humanize %>
+<%= f.input :client_3, placeholder: :client_3.to_s.humanize %>
+<%= f.input :client_4, placeholder: :client_4.to_s.humanize %>
+<%= f.input :client_5, placeholder: :client_5.to_s.humanize %>
+<%= f.input :client_6, placeholder: :client_6.to_s.humanize %>
+<%= f.input :client_7, placeholder: :client_7.to_s.humanize %>
+<%= f.input :client_8, placeholder: :client_8.to_s.humanize %>
+<%= f.input :client_9, placeholder: :client_9.to_s.humanize %>
+<%= f.input :client_10, placeholder: :client_10.to_s.humanize %>
+<%= f.input :client_11, placeholder: :client_11.to_s.humanize %>
+<%= f.input :client_12, placeholder: :client_12.to_s.humanize %>
+<%= f.input :client_13, placeholder: :client_13.to_s.humanize %>
+<%= f.input :client_14, placeholder: :client_14.to_s.humanize %>
+<%= f.input :client_15, placeholder: :client_15.to_s.humanize %>
+<%= f.input :client_16, placeholder: :client_16.to_s.humanize %>
+<%= f.input :client_17, placeholder: :client_17.to_s.humanize %>
+<%= f.input :client_18, placeholder: :client_18.to_s.humanize %>
+<%= f.input :client_19, placeholder: :client_19.to_s.humanize %>
+<%= f.input :client_20, placeholder: :client_20.to_s.humanize %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="actions">
+<%= f.submit "Ok", class: 'btn btn-large btn-primary' %> 
+  </div>
+<% end %></div>

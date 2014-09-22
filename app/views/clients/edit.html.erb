@@ -1,0 +1,19 @@
+<div class="container">
+	<div class='well'><%= simple_form_for @client, html: {role: 'form', class: 'form-inline'} do |f| %> <div class="form-group"><div class="form-group" id="nom">
+<%= f.input :nom, placeholder: 'Nom du client',  :validate => true %> <%# Judge va se charger de la validation %></div>
+<%= f.input :raison_sociale, label: false, placeholder: 'Raison sociale'  %></div>
+
+<%= f.input :adresse, label: false, placeholder: 'Adresse'  %>
+<%= f.submit "Ok", class: 'btn btn-large btn-primary' %> 
+<% end %></div></div><script>
+judge.validate(document.getElementById('nom'), {
+  valid: function(element) {
+    // element.style.border = '1px solid green';
+    element.className += " has-success"
+  },
+  invalid: function(element, messages) {
+    // element.style.border = '1px solid red';
+    element.className += " has-error"
+    alert(messages.join(','));
+  }
+});</script>

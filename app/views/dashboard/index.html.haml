@@ -1,0 +1,23 @@
+%br
+.col-md-6
+	= geo_chart Projet.joins(:condition).group(:pays).count, library: {region: '002'}
+.col-md-6
+	= geo_chart Projet.joins(:condition).group(:pays).count, library: {region: '150'}
+.col-md-6
+	.panel.panel-default
+		.panel-heading
+			%h3 Provenance des fournisseurs
+		.panel-body
+			= pie_chart Fournisseur.group(:pays).count
+.col-md-6
+	.panel.panel-default
+		.panel-heading
+			%h3 Types de projets
+		.panel-body
+			= pie_chart Projet.joins("LEFT OUTER JOIN t_type_projet ON t_type_projet.id = t_projet.id_typeprojet").group(:Description).count
+
+.panel.panel-default
+	.panel-heading
+		%h3 Date de création des projet regroupée par mois
+	.panel-body
+		= line_chart @datum.group_by_month{|u| u[:date] }.map{|k,v| [k, v.size]}

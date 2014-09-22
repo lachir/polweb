@@ -1,0 +1,20 @@
+.col-md-6
+      = simple_form_for([@projet, @matiere],  wrapper: :vertical_form) do |f|
+            = f.error_notification  
+            = f.input :angle_talutage, placeholder: 'Angle talutage', label: 'angle_talutage'.humanize
+            = f.input :densite_calcul, placeholder: 'Densité calcul', label: 'densite_calcul'.humanize
+            = f.input :densite_convoyee, placeholder: 'Densité convoyée', label: 'densite_convoyee'.humanize
+            = f.input :densite_stockee, placeholder: 'Densité stockée', label: 'densite_stockee'.humanize
+            = f.input :granulometrie, placeholder: 'Granulométrie', label: 'granulometrie'.humanize
+            = f.input :humidite_max, placeholder: 'Humidité max', label: 'humidite_max'.humanize
+            = f.input :humidite_min, placeholder: 'Humidité min', label: 'humidite_min'.humanize
+            = f.input :humidite_moy, placeholder: 'Humidité moy', label: 'humidite_moy'.humanize
+            = f.input :matiere_en, placeholder: 'Matière en', label: 'matiere_en'.humanize
+            = f.input :matiere_fr, placeholder: 'Matière fr', label: 'matiere_fr'.humanize
+            = f.input :position_matiere, placeholder: 'Position matière', label: 'position_matiere'.humanize
+            = f.input :temperature, placeholder: 'Température', label: 'temperature'.humanize
+            = f.input :unite_densite, placeholder: 'Unité densite', label: 'unite_densite'.humanize
+            = f.input :unite_granulometrie, placeholder: 'Unité granulometrie', label: 'unite_granulometrie'.humanize
+            = f.input :unite_temperature, placeholder: 'Unité temperature', label: 'unite_temperature'.humanize
+            .form-actions
+                  = f.button :submit

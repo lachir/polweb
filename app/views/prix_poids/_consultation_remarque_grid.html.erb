@@ -1,0 +1,110 @@
+<%= grid(@prix_grid) do |g|
+
+  g.column name: 'Projet', attribute: 'code_complet', model: 'Projet', in_csv: false,  auto_reload: true do |task|
+    unless task.projet == nil then
+   	link_to task.projet.code_complet +  "  "  +  task.projet.nom_code, projet_path(task.projet.id)
+   end
+  end
+    g.column name: 'Offre', in_csv: false do |task|
+
+  link_to('<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, offre_path(task.offre.id))
+   end
+    g.column name: 'Projet', attribute: 'code_complet', model: 'Projet', in_html: false do |task|
+        unless task.projet == nil then
+    task.projet.code_complet +  "  "  +  task.projet.nom_code
+  end
+  end
+    g.column name: 'Item', attribute: 'designation', model: 'Item', in_html: false do |task|
+  unless task.projet == nil then
+
+    unless task.projet.id_codification == "1"
+     "Code client : " + task.item.designation + " Planus : " + Codification.find_by_id(task.item.code_planus).planus
+   else
+     task.item.designation
+     end
+     end
+  end
+  g.column name: 'Item', attribute: 'designation', model: 'Item', in_csv: false,  auto_reload: true do |task|
+  unless task.projet == nil then
+            unless task.item.code_planus.to_i == 0 
+              unless task.projet.id_codification == "1"
+            link_to("Code client : " + task.item.designation + " Planus : " + Codification.find_by_id(task.item.code_planus).planus, {controller: 'codification', action: 'recherche_des_items_avec_offre', id: task.item.code_planus }, :title => "Cliquer sur ce lien vous affichera tous les items de sa catégorie possédant une offre")
+              else
+      link_to task.item.designation, {controller: 'codification', action: 'recherche_des_items_avec_offre', id: task.item.code_planus },  :title => "Cliquer sur ce lien vous affichera tous les items de sa catégorie possédant une offre"
+        end
+      else
+        task.item.designation
+    end 
+  end
+end
+  g.column name: 'Date offre', attribute: 'date_offre', model: 'Offre', in_csv: false do |task|
+    link_to task.offre.date_offre, controller: 'offres', action: 'show', id: task.offre.id
+  end
+  g.column name: 'Date offre', attribute: 'date_offre', model: 'Offre', in_html: false do |task|
+     task.offre.date_offre
+  end
+
+ g.column name: 'Folio', attribute: 'numero', model: 'Folio' do |task|
+    task.item.folio.numero
+  end
+   g.column name: 'Rev', attribute: 'numero', model: 'Folio' do |task|
+    task.item.folio.revision
+  end
+
+   g.column name: 'Fournisseur', attribute: 'nom', model: 'Fournisseur', in_html: false do |task|
+   task.offre.fournisseur.nom
+  end
+     g.column name: 'Fournisseur', attribute: 'nom', model: 'Fournisseur',  auto_reload: true, in_csv: false do |task|
+   link_to task.offre.fournisseur.nom, fournisseur_path(task.offre.fournisseur.id)
+  end
+   g.column name: 'Description 1 lié à la saisie de la consultation', attribute: 'remarque', model: 'PrixPoid', filter_type: :range_1 do |task|
+    r1 = task.remarque[/1:.{1,}2:/] unless task.remarque.nil?
+    unless r1 == nil
+     r1.gsub!('1:','')
+     r1.gsub!('2:','')
+     r1
+    end
+  end
+     g.column name: 'Description 2 lié à la saisie de la consultation', attribute: 'remarque', model: 'PrixPoid',  filter_type: :range_2 do |task|
+      r2 = task.remarque[/2:.{1,}3:/] unless task.remarque.nil?
+    unless r2 == nil
+     r2.gsub!('3:','')
+     r2.gsub!('2:','')
+     r2
+    end 
+     end
+     g.column name: 'Description 3 lié à la saisie de la consultation', attribute: 'remarque', model: 'PrixPoid',  filter_type: :range_3 do |task|
+    r3 = task.remarque[/3:.*/] unless task.remarque.nil?
+    unless r3 == nil
+     r3.gsub!('3:','')
+     r3
+    end   end
+     g.column name: 'Numéro d\'offre', attribute: 'num_offre', model: 'Offre', in_csv: false do |task|
+    link_to(if task.offre.num_offre == "" then "Offre" else task.offre.num_offre end, "file:///" + task.offre.offre.to_s,:title => "Pour ouvrir le fichier faites clic-droit sur le lien, copier l'adresse du lien et collez-le dans un nouvel onglet", :id => "lol", :data => {:toggle => 'tooltip', :title => 'Pour ouvrir le fichier faites clic-droit sur le lien, copier l\'adresse du lien et collez-le dans un nouvel onglet'}, :class => 'link')
+  end
+       g.column name: 'Numéro d\'offre', attribute: 'num_offre', model: 'Offre', in_html: false do |task|
+   task.offre.num_offre
+ end
+       g.column name: 'Poids local', attribute: 'poids_local' , filter_type: :range do |task|
+    task.poids_local
+  end
+     g.column name: 'Prix local', attribute: 'prix_local' , filter_type: :range do |task|
+    task.prix_local + " " + task.devise_local
+  end
+       g.column name: 'Poids importé', attribute: 'poids_importe', filter_type: :range do |task|
+    task.poids_importe
+  end
+     g.column name: 'Prix importé', attribute: 'prix_importe', filter_type: :range do |task|
+    task.prix_importe + " " + task.devise_importe
+  end
+  g.column name: 'Remarque', attribute: 'remarque', in_csv: false do |t|
+      unless (t.item.date_modification == nil || t.item.date_creation == nil || t.item.date_modification == ""  || t.item.date_creation == "") then
+        if ((Time.parse(t.item.date_modification) - Time.parse(t.item.date_creation)) > 0) then
+          [content_tag(:p, t.remarque, :title => "L'item a été modifié depuis sa création, attention à la validité de l'offre"), {style: 'background-color: rgb(255, 105, 104);', class: 'some-special-class'}]
+        else
+          t.remarque
+        end
+      end
+  end
+  g.column name: 'Remarque', attribute: 'remarque', in_html: false
+end -%> 

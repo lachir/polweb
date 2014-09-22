@@ -1,0 +1,11 @@
+
+<%= form_for(@type_projet) do |f| %>
+  <div class="field">
+    <label>Description</label>
+    <%= f.text_field :Description %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Créer le type de projet", class: 'btn btn-primary' %>
+  </div>
+<% end %>

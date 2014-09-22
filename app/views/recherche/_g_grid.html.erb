@@ -1,0 +1,65 @@
+<%= grid(@ggrid) do |g|
+g.column name: 'Projet'.humanize, attribute: 'code_complet', model: 'Projet' do |task|
+	task.projet.code_complet
+end
+g.column name: 'fonction'.humanize, attribute: 'fonction' do |task|
+	task.fonction
+end
+g.column name: 'combustible_defaut_fr'.humanize, attribute: 'combustible_defaut_fr' do |task|
+	task.combustible_defaut_fr
+end
+g.column name: 'combustible_defaut_en'.humanize, attribute: 'combustible_defaut_en' do |task|
+	task.combustible_defaut_en
+end
+g.column name: 'pci_defaut'.humanize, attribute: 'pci_defaut' do |task|
+	task.pci_defaut
+end
+g.column name: 'unite_pci'.humanize, attribute: 'unite_pci' do |task|
+	task.unite_pci
+end
+g.column name: 'methane'.humanize, attribute: 'methane' do |task|
+	task.methane
+end
+g.column name: 'ethylene'.humanize, attribute: 'ethylene' do |task|
+	task.ethylene
+end
+g.column name: 'ethane'.humanize, attribute: 'ethane' do |task|
+	task.ethane
+end
+g.column name: 'propylene'.humanize, attribute: 'propylene' do |task|
+	task.propylene
+end
+g.column name: 'propane'.humanize, attribute: 'propane' do |task|
+	task.propane
+end
+g.column name: 'butylene'.humanize, attribute: 'butylene' do |task|
+	task.butylene
+end
+g.column name: 'butane'.humanize, attribute: 'butane' do |task|
+	task.butane
+end
+g.column name: 'pentane'.humanize, attribute: 'pentane' do |task|
+	task.pentane
+end
+g.column name: 'hydrogene'.humanize, attribute: 'hydrogene' do |task|
+	task.hydrogene
+end
+g.column name: 'oxyde_carbone'.humanize, attribute: 'oxyde_carbone' do |task|
+	task.oxyde_carbone
+end
+g.column name: 'anhydride_carbonique'.humanize, attribute: 'anhydride_carbonique' do |task|
+	task.anhydride_carbonique
+end
+g.column name: 'azote'.humanize, attribute: 'azote' do |task|
+	task.azote
+end
+g.column name: 'oxygene'.humanize, attribute: 'oxygene' do |task|
+	task.oxygene
+end
+g.column name: 'densite'.humanize, attribute: 'densite' do |task|
+	task.densite
+end
+g.column name: 'unite_densite'.humanize, attribute: 'unite_densite' do |task|
+	task.unite_densite
+end
+end -%>

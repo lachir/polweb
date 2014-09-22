@@ -1,0 +1,13 @@
+%h1 Edition du fournisseur
+.container
+	= render 'form'
+.row
+	.col-md-1
+		= link_to @fournisseur, class: "btn btn-default" do 
+			%i.glyphicon.glyphicon-eye-open
+	.col-md-1
+		= link_to fournisseurs_path, class: "btn btn-default" do
+			%i.glyphicon.glyphicon-home
+	.col-md-1
+		= link_to fournisseur_path(@fournisseur), class: "btn btn-default", method: :delete, data: { confirm: 'Are you sure?' } do
+			%i.glyphicon.glyphicon-trash

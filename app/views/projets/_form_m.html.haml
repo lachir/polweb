@@ -1,0 +1,87 @@
+- modal ||= false
+- remote = modal ? true : false
+= form_for([@projet, @projet.matiere.build]) do |f|
+  .row
+    .col-md-4
+      .form-group
+        = f.label :matiere_fr, class: 'control-label'
+        %br/
+        = f.text_field :matiere_fr, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :matiere_en, class: 'control-label'
+        %br/
+        = f.text_field :matiere_en, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :densite_convoyee, class: 'control-label'
+        %br/
+        = f.text_field :densite_convoyee, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :densite_stockee, class: 'control-label'
+        %br/
+        = f.text_field :densite_stockee, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :densite_calcul, class: 'control-label'
+        %br/
+        = f.text_field :densite_calcul, class: 'form-control' 
+    .col-md-4
+      .form-group
+        = f.label :unite_densite, class: 'control-label'
+        %br/
+        = f.text_field :unite_densite, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :granulometrie, class: 'control-label'
+        %br/
+        = f.text_field :granulometrie, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :unite_granulometrie, class: 'control-label'
+        %br/
+        = f.text_field :unite_granulometrie, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :humidite_min, class: 'control-label'
+        %br/
+        = f.text_field :humidite_min, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :humidite_moy, class: 'control-label'
+        %br/
+        = f.text_field :humidite_moy, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :humidite_max, class: 'control-label'
+        %br/
+        = f.text_field :humidite_max, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :temperature, class: 'control-label'
+        %br/
+        = f.text_field :temperature, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :unite_temperature, class: 'control-label'
+        %br/
+        = f.text_field :unite_temperature, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :angle_talutage, class: 'control-label'
+        %br/
+        = f.text_field :angle_talutage, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :position_matiere, class: 'control-label'
+        %br/
+        = f.text_field :position_matiere, class: 'form-control'
+  .row
+    .col-md-4
+      .actions
+        = f.submit 'Ok', class: 'btn btn-default'

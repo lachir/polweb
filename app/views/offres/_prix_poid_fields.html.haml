@@ -1,0 +1,11 @@
+.nested-fields
+	.row
+		= f.input :id_item, :collection => @liste_item, :label_method => :designation, :value_method => :id, label: false, placeholder: 'Item', input_html: {class: 'input-sm'}
+		= f.input :poids_local, label: false, placeholder: 'Poids local', input_html: {class: 'input-sm'}
+		= f.input :prix_local, label: false, placeholder: 'Prix local', input_html: {class: 'input-sm'}
+		= f.input :devise_local, :collection => [["Euro(EUR)","Euro(EUR)"],["Dollar(USD)" ,"Dollar(USD)" ], ["Yuan(CNY)", "Yuan(CNY)"],["Franc(Guinée)", "Franc(Guinée)"],["Dinar(Algérie)","Dinar(Algérie)"],["Dinar(Tunisie","Dinar(Tunisie)"]], label: false, prompt: 'Devise locale', input_html: {class: 'input-sm'}, :selected => "Euro(EUR)"
+		= f.input :poids_importe, label: false, placeholder: 'Poids importé', input_html: {class: 'input-sm'}
+		= f.input :prix_importe, label: false, placeholder: 'Prix importé', input_html: {class: 'input-sm'}
+		= f.input :devise_importe, :collection => [["Euro(EUR)","Euro(EUR)"],["Dollar(USD)" ,"Dollar(USD)" ], ["Yuan(CNY)", "Yuan(CNY)"],["Franc(Guinée)", "Franc(Guinée)"],["Dinar(Algérie)","Dinar(Algérie)"],["Dinar(Tunisie","Dinar(Tunisie)"]], label: false, prompt: 'Devise importée', input_html: {class: 'input-sm'}, :selected => "Euro(EUR)"
+		= f.input :remarque, label: false, placeholder: 'Remarque', input_html: {class: 'input-sm'}
+		= link_to_remove_association "", f, :class => "glyphicon glyphicon-trash"

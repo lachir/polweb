@@ -1,0 +1,8 @@
+.col-md-6
+	= simple_form_for(@fournisseur) do |f|
+		= f.error_notification
+		.form-inputs
+			= f.input :nom, label: 'Nom', placeholder: 'Nom'
+			= f.input :pays, as: :country, label: 'Pays', prompt: 'Pays'
+		.form-actions
+			= f.button :submit

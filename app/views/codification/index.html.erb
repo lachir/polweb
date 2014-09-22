@@ -1,0 +1,36 @@
+
+<div class='well' ><%= link_to 'nouvelle codification', new_codification_path %></div>
+<%= grid(@codification_g) do |g|
+	   g.column in_csv: false do |task|   	
+   link_to('<i class="glyphicon glyphicon-pencil"></i>'.html_safe, controller: "codification", action: "edit", id: task.id)
+
+  end 
+   g.column  in_csv: false do |task|   	
+   link_to('<i class="glyphicon glyphicon-eye-open"></i>'.html_safe,{controller: "codification", action: "recherche_des_items", id: task.id}, title: "Pour afficher tous les items d'un même type, cliquez sur l'oeil.")
+
+  end 
+     g.column  in_csv: false do |task|
+   link_to('<i class="glyphicon glyphicon-euro"></i>'.html_safe, {controller: "codification", action: "recherche_des_items_avec_offre", id: task.id}, :title => "Pour afficher tous les items d'un même type ayant une offre, cliquez sur l'euro")
+
+  end 
+  g.column name: 'Désignation', attribute: 'designation_fr', model: Codification
+    g.column name: 'Designation', attribute: 'designation_en', model: Codification
+      g.column name: 'Planus', attribute: 'planus', model: Codification
+g.column name: 'holcim fr', attribute: 'holcim_fr', model: Codification
+g.column name: 'holcim en', attribute: 'holcim_en', model: Codification
+g.column name: 'lafarge', attribute: 'lafarge', model: Codification
+g.column name: 'peg', attribute: 'peg', model: Codification
+g.column name: 'Lafarge en : client_1', attribute: 'client_1', model: Codification
+for i in 2..20
+  if i == 3 then 
+  g.column name: ('Enfidah'), attribute: 'client_3', model: Codification
+    else
+g.column name: ('client_' + i.to_s).humanize, attribute: 'client_' + i.to_s, model: Codification
+     end
+
+end
+end -%>
+<div id="dialog" title="Recherche d'item">
+  <p>Pour afficher tous les items d'un même type, cliquez sur l'oeil. Pour afficher tous les items d'un même type ayant une offre, cliquez sur l'euro </p>
+</div>
+<script> $(document).tooltip() </script> <%# Utilisation de jQuery pour afficher les tooltips %>

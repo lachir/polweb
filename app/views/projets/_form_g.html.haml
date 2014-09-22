@@ -1,0 +1,113 @@
+- modal ||= false
+- remote = modal ? true : false
+= form_for([@projet, @projet.combustible_gazeux.build]) do |f|
+  .row
+    .col-md-4
+      .form-group
+        = f.label :fonction, class: 'control-label'
+        %br/
+        = f.text_field :fonction, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :combustible_defaut_fr, class: 'control-label'
+        %br/
+        = f.text_field :combustible_defaut_fr, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :combustible_defaut_en, class: 'control-label'
+        %br/
+        = f.text_field :combustible_defaut_en, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :pci_defaut, class: 'control-label'
+        %br/
+        = f.text_field :pci_defaut, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :unite_pci, class: 'control-label'
+        %br/
+        = f.text_field :unite_pci, class: 'form-control'
+  
+    .col-md-4
+      .form-group
+        = f.label :methane, class: 'control-label'
+        %br/
+        = f.text_field :methane, class: 'form-control'
+
+  .row
+    .col-md-4
+      .form-group
+        = f.label :ethylene, class: 'control-label'
+        %br/
+        = f.text_field :ethylene, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :ethane, class: 'control-label'
+        %br/
+        = f.text_field :ethane, class: 'form-control'
+  
+    .col-md-4
+      .form-group
+        = f.label :propylene, class: 'control-label'
+        %br/
+        = f.text_field :propylene, class: 'form-control'
+  .row  
+    .col-md-4
+      .form-group
+        = f.label :butylene, class: 'control-label'
+        %br/
+        = f.text_field :butylene, class: 'form-control' 
+    .col-md-4
+      .form-group
+        = f.label :butane, class: 'control-label'
+        %br/
+        = f.text_field :butane, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :pentane, class: 'control-label'
+        %br/
+        = f.text_field :pentane, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :hydrogene, class: 'control-label'
+        %br/
+        = f.text_field :hydrogene, class: 'form-control'
+
+    .col-md-4
+      .form-group
+        = f.label :oxyde_carbone, class: 'control-label'
+        %br/
+        = f.text_field :oxyde_carbone, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :anhydride_carbonique, class: 'control-label'
+        %br/
+        = f.text_field :anhydride_carbonique, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :azote, class: 'control-label'
+        %br/
+        = f.text_field :azote, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :oxygene, class: 'control-label'
+        %br/
+        = f.text_field :oxygene, class: 'form-control'
+  
+    .col-md-4
+      .form-group
+        = f.label :densite, class: 'control-label'
+        %br/
+        = f.text_field :densite, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :unite_densite, class: 'control-label'
+        %br/
+        = f.text_field :unite_densite, class: 'form-control'
+    .col-md-4
+      .actions
+        = f.submit 'Envoyer', class: 'btn btn-default'

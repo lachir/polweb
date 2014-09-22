@@ -1,0 +1,30 @@
+<%= grid(@items_grid) do |g|
+	g.column name: 'Désignation', attribute: 'designation', in_csv: false do |task|
+    unless ( task == nil) then
+      unless task.projet.id_codification.to_i == 1 then
+        codif = Codification.find_by_id(task.code_planus)
+        unless codif == nil then
+        unless codif.planus == nil then
+        "client : " + task.designation + " Planus : " + codif.planus.to_s
+        end
+       end
+      else
+        unless task.code_planus.to_i == 0 then
+          link_to task.designation, controller: 'codification', action: 'recherche_des_items', id: task.code_planus
+        else
+          task.designation
+        end
+      end
+    end
+	end
+								g.column name: 'Description 1', attribute: 'description1'
+
+								g.column  name: 'Description 2', attribute: 'description2'
+
+								g.column  name: 'Description 3', attribute: 'description3'
+
+								g.column  name: 'Liens daatsheet', attribute: 'lien_datasheet'
+g.blank_slate do
+															"Il n'y a pas d'items"
+														end
+								end -%>

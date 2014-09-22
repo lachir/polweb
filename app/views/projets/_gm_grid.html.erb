@@ -1,0 +1,83 @@
+	<%= grid(@matieres_grid) do |g|
+
+
+g.column in_csv: false do |m|
+    link_to('<i class="glyphicon glyphicon-pencil"></i>'.html_safe, [:edit, @projet, m])
+
+  end  
+  g.column in_csv: false do |m|
+
+
+
+  link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, [m.projet, m], method: :delete, data: { confirm: 'Are you sure?' }
+   end
+
+
+
+
+
+
+
+
+
+								g.column name: 'Matières' do |m|
+									m.matiere_fr
+								end
+								g.column name: 'Material' do |m|
+									m.matiere_en 
+								end
+								g.column name: 'Densité convoyée' do |m|
+									m.densite_convoyee
+								end
+								g.column name: 'Densité stockée' do |m|
+									m.densite_stockee 
+								end
+								g.column name: 'Unité densité' do |m|
+									m.unite_densite
+								end
+								g.column name: 'Granulométrie'  do |m|
+									m.granulometrie
+								end
+								g.column name: 'Unité Granulométrie' do |m|
+
+									m.unite_granulometrie
+								end
+								g.column name: 'Humidité min' do |m|
+									m.humidite_min
+								end
+								g.column name: 'Humidité moy' do |m|
+
+									m.humidite_moy
+								end
+								g.column  name: 'Humidité max' do |m|
+									m.humidite_max
+								end
+								g.column name: 'Température' do |m|
+									m.temperature
+								end
+								g.column name: 'Unité température' do |m|
+									m.unite_temperature
+								end
+								g.column name: 'Angle de talutage' do |m|
+									m.angle_talutage 
+								end
+								g.column name: 'Position matière'  do |m|
+									m.position_matiere
+								end
+
+								g.last_row do |number_of_columns|
+									unless session[:ecriture]
+										link_to 'S\'authentifier', new_session_path									else
+
+									link_to 'Nouvelle matière', '#new_m', 'data-toggle' => 'modal'
+								end
+								end
+								g.blank_slate do
+									unless session[:ecriture]
+
+										link_to 'Il n\'y a pas de matière', new_session_path
+									else
+
+								link_to 'Il n\'y a pas de matière, en créer une nouvelle', '#new_m', 'data-toggle' => 'modal'
+														end end
+								end -%>

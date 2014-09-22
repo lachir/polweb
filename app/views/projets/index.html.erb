@@ -1,0 +1,28 @@
+<div class='well'> </div>
+<%= grid(@projets_grid) do |g|                                       
+    g.column name: 'Code', attribute: 'code_complet', model: 'Projet' do |task|     
+     	link_to(task.code_complet, projet_path(task))                
+    end                                                            
+    g.column name: 'Descriptif', attribute: 'descriptif' do |task| 
+      task.descriptif                                              
+    end                                                            
+    g.column name: 'Débit', attribute: 'debit' do |task|           
+      task.debit                                                   
+    end                                                            
+    g.column name:'Nom du client', attribute: 'nom' , model: 'Client' do |task|                        
+      unless task.client == nil 
+       link_to task.client.nom, client_path(task.client.id)
+     end           
+    end  
+
+      g.column name: 'Catégorie de projet', attribute: 'Description', model: 'CategorieProjet' do |task|
+    unless task.categorie_projet == nil then task.categorie_projet.Description end
+  end
+  g.column name:'Type de projet', attribute: 'Description', model: 'TypeProjet' do |task|
+   unless task.type_projet == nil then  task.type_projet.Description end
+  end
+
+    g.column do |task|
+        link_to('<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, projet_path(task))   
+    end                
+  end -%>

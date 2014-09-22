@@ -1,0 +1,137 @@
+:css
+  .table-scrollable{
+      overflow: auto;
+  }
+%h2#1 
+  Description
+  - if @projet.type.type == "projet"
+    du  
+  -else
+    de l'
+  = @projet.type.type 
+%ul
+  = render 'form_projet'
+%h2#2 Conditions locales
+%ul
+  .table-responsive.table-scrollable
+    - if @locales == nil then
+      %h3= link_to 'Nouvelles conditions', new_condition_path(:id_projet => @projet.id)
+      
+      %h3= link_to 'Importer des conditions', import_conditions_path(:id_projet => @projet.id)
+    - else
+      = render 'gc_grid'
+#new_c.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h4#myModalLabel.modal-title Créer de nouvelles conditions
+      .modal-body
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal" ,:type => "button"} Fermer
+%h2#7 Utilités
+%ul
+  .table-responsive.table-scrollable
+    = render 'gu_grid'
+%h2#3 Matières
+%ul
+  .table-responsive.table-scrollable
+    - if session[:ecriture] then
+      %h3= link_to 'Importer des matières', import_matieres_path(:id_projet => @projet.id)
+    = render 'gm_grid'
+#new_u.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h4#myModalLabel.modal-title Créer une nouvelle utilité
+      .modal-body
+        = render 'form_u', modal: true
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Fermer     
+%h2#4 Offres
+%h3= link_to('Nouvelle offre', new_offre_path)
+- @projet.offre.each do |o|
+  %ul.list-group
+    %li.list-group-item
+      = link_to o.fournisseur.nom, fournisseur_path(o.fournisseur)
+      = link_to('<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_offre_path(o))
+    %li.list-group-item= link_to o.num_offre, offre_path(o)
+    %li.list-group-item
+      - unless o.offre == nil
+        - if (o.offre[0] == "W" ) || ( o.offre =~ /KP05S105/ ) 
+          = link_to o.offre,( 'file://///' + o.offre ) 
+        -else 
+          = link_to o.offre, "/consult/#{o.id_projet}/#{o.offre}" 
+    %li.list-group-item= link_to o.date_offre, offre_path(o)
+#new_m.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h4#myModalLabel.modal-title Créer une nouvelle matière
+      .modal-body
+        = render 'form_m', modal: true
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Fermer     
+%h2#5	Items
+= render 'gi_grid'
+%h2#6 Combustibles
+%h3#61 Combustibles Gazeux
+%ul
+  .table-responsive.table-scrollable
+    %h3= link_to 'Nouveau Combustible gazeux', '#new_g', 'data-toggle' => 'modal'
+    = render 'gg_grid'
+    #new_g.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4#myModalLabel.modal-title Créer un nouveau combustible gazeux
+          .modal-body
+            = render 'form_g', modal: true
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Fermer
+%h3#62 Combustibles Liquide
+%ul
+  .table-responsive.table-scrollable
+    %h3= link_to 'Nouveau Combustible liquide', '#new_l', 'data-toggle' => 'modal'
+    = render 'gl_grid'
+  #new_l.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog.modal-lg
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"}  ×
+          %h4#myModalLabel.modal-title Créer un nouveau combustible liquide
+        .modal-body
+          = render 'form_l', modal: true
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Fermer
+%h3#63 Combustibles Solide
+%ul
+  .table-responsive.table-scrollable
+    %h3= link_to 'Nouveau Combustible solide', '#new_s', 'data-toggle' => 'modal'
+    = render 'gs_grid'
+    #new_s.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4#myModalLabel.modal-title Créer un nouveau combustible autre
+          .modal-body
+            = render 'form_s', modal: true
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Fermer
+%h3#64 Combustibles Autres
+%ul
+  .table-responsive.table-scrollable
+    %h3= link_to 'Nouveau Combustible autre', '#new_a', 'data-toggle' => 'modal'
+    = render 'ga_grid'
+    #new_a.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4#myModalLabel.modal-title Créer un nouveau combustible autre
+          .modal-body
+            = render 'form_a', modal: true

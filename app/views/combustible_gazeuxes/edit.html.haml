@@ -1,0 +1,13 @@
+%h1 Edition du combustible gazeux
+.container
+	- unless session[:ecriture]
+		= link_to 'S\'authentifier', new_session_path 
+	- else
+		= render 'form'
+.row
+	.col-md-1
+		= link_to projet_path(session[:id_projet], :anchor => '61'), class: "btn btn-default" do
+			%i.glyphicon.glyphicon-home
+	.col-md-1
+		= link_to [@projet,@combustible_gazeux], class: "btn btn-default", method: :delete, data: { confirm: 'Are you sure?' } do
+			%i.glyphicon.glyphicon-trash

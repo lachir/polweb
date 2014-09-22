@@ -1,0 +1,5 @@
+<h2>Nouveau type de projet</h2><%= form_for(@type_projet) do |f| %>
+<%= f.label 'Description' %>
+<%= f.text_field :description %>
+<%= f.submit "Ok", class: 'btn btn-large btn-primary' %>
+<% end %>

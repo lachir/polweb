@@ -1,0 +1,41 @@
+<%= grid(@cgrid) do |g|
+g.column name: 'Projet'.humanize, attribute: 'code_complet', model: 'Projet' do |task|
+	task.projet.code_complet
+end
+g.column name: 'pays'.humanize, attribute: 'pays' do |task|
+	task.pays
+end
+g.column name: 'site'.humanize, attribute: 'site' do |task|
+	task.site
+end
+g.column name: 'altitude'.humanize, attribute: 'altitude' do |task|
+	task.altitude
+end
+g.column name: 'latitude'.humanize, attribute: 'latitude' do |task|
+	task.latitude
+end
+g.column name: 'longitude'.humanize, attribute: 'longitude' do |task|
+	task.longitude
+end
+g.column name: 'temperature_max'.humanize, attribute: 'temperature_max' do |task|
+	task.temperature_max
+end
+g.column name: 'temperature_min'.humanize, attribute: 'temperature_min' do |task|
+	task.temperature_min
+end
+g.column name: 'temperature_max_equip'.humanize, attribute: 'temperature_max_equip' do |task|
+	task.temperature_max_equip
+end
+g.column name: 'temperature_min_equip'.humanize, attribute: 'temperature_min_equip' do |task|
+	task.temperature_min_equip
+end
+g.column name: 'humidite_max'.humanize, attribute: 'humidite_max' do |task|
+	task.humidite_max
+end
+g.column name: 'humidite_min'.humanize, attribute: 'humidite_min' do |task|
+	task.humidite_min
+end
+g.column name: 'precipitation'.humanize, attribute: 'precipitation' do |task|
+	task.precipitation
+end
+end -%>

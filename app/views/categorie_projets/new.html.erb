@@ -1,0 +1,11 @@
+
+<%= simple_form_for(@categorie_projet) do |f| %>
+  <div class="field">
+    <label>Description</label>
+    <%= f.text_field :Description %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Créer la catégorie de projet", class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,6 @@
+%h3 Définir l'emplacement du projet #{@projet.code_complet + @projet.nom_code}
+= form_tag(action="migrer") do
+	%h4 Entrer le chemin vers le flowsheet, doit être de la forme : W:\5-Technique\AP2550_QASSIM NVLLE LIGNE\4-Plans\Flow_Sheet_Chart\P2550- 
+	%h5= link_to 'Comment trouver ce chemin', root_url+'migration.pdf'
+	= text_field_tag  'chemin_flowsheet'
+	= submit_tag

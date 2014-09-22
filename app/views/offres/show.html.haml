@@ -1,0 +1,43 @@
+.jumbotron
+	%h3 Résumé de l'offre
+	%table.table.table-bordered
+		%tr
+			%td
+				= link_to 'Fournisseur', fournisseurs_path
+			%td
+				= link_to 'Projet', projets_path
+			%td
+				Numéro d'offre
+			%td
+				Date
+			%td
+				= link_to 'Offre', offres_path
+			%td
+				Commentaire
+		%tr
+			%td
+				= link_to @offre.fournisseur.nom, fournisseur_path(@offre.fournisseur)
+			%td
+				= link_to (@offre.projet.code_complet.to_s  + @offre.projet.nom_code), projet_path(@offre.projet)
+			%td
+				= @offre.num_offre
+			%td
+				= @offre.date_offre
+			%td
+				- unless @offre.offre == nil
+					- if (@offre.offre[0] == "W" ) || ( @offre.offre =~ /KP05S105/ ) 
+						= link_to @offre.offre,( 'file://///' + @offre.offre ), :title => "Pour ouvrir le fichier faites clique-droit sur le lien, copier l'adresse du lien et coller-le dans un nouvel onglet"
+					-else 
+						= link_to @offre.offre, "/consult/#{@offre.id_projet}/#{@offre.offre}", :title => "Pour ouvrir le fichier faites clique-droit sur le lien, copier l'adresse du lien et coller-le dans un nouvel onglet"
+			%td
+				= @offre.commentaire
+
+.well
+	= link_to edit_offre_path(@offre), class: "btn btn-default" do
+		%i.glyphicon.glyphicon-pencil
+	= link_to offre_path(@offre), class: "btn btn-default", method: :delete, data: { confirm: 'Are you sure?' } do
+		%i.glyphicon.glyphicon-trash
+%h3 Liste des items correspondant à l'offre
+= render 'offre_item_grid'
+:javascript
+	 $( document ).tooltip()

@@ -1,0 +1,21 @@
+.col-md-6
+	= simple_form_for([@projet, @combustible_autre], wrapper: :vertical_form) do |f|
+		= f.error_notification
+		.form-inputs
+			= f.input :fonction, placeholder: 'Fonction'
+			= f.input :combustible_defaut_fr, placeholder: 'Combustible fr'
+			= f.input :combustible_defaut_en, placeholder: 'Combustible en'
+			= f.input :pci_defaut, placeholder: 'Pci'
+			= f.input :unite_pci, placeholder: 'Unité pci'
+			= f.input :teneur_soufre_defaut, placeholder: 'Teneur soufre'
+			= f.input :teneur_chlore_defaut, placeholder: 'Teneur chlore'
+			= f.input :teneur_azote_defaut, placeholder: 'Teneur azote'
+			= f.input :teneur_carbone_defaut, placeholder: 'Teneur carbone'
+			= f.input :teneur_hydrogene_defaut, placeholder: 'Teneur hydrogene'
+			= f.input :teneur_oxygene_defaut, placeholder: 'Teneur oxygene'
+			= f.input :teneur_na2o_defaut, placeholer: 'Teneur Na2O'
+			= f.input :teneur_k2o_defaut, placeholder: 'Teneur K2O'
+			= f.input :densite, :placeholder => 'Densité'
+			= f.input :unite_densite, :placeholder => 'Unité densité'
+		.form-actions
+			= f.button :submit

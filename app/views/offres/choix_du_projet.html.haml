@@ -1,0 +1,14 @@
+.container
+	.col-md-4
+		= form_tag(action="selection_du_projet") do
+			%fieldset
+				%legend
+					= controller.action_name.humanize
+				.control-group
+					= label_tag 'Projet', nil, class: 'control-label'
+					.controls
+						= select_tag "IdInput", options_for_select(Projet.all.order(code_complet: :asc).collect{ |u| [u.code_complet + ' ' + u.nom_code, u.id] }), {class: 'form-control'}
+				%span.help-block= 'Sélectionnez le projet pour lequel vous voulez saisir l\'offre'
+				.form-actions
+					= submit_tag nil, :class => 'btn btn-primary'
+					= link_to 'Retour', :back, :class => 'btn'

@@ -1,0 +1,77 @@
+<%= grid(@items_grid) do |g|
+
+  g.column name: 'Projet', :attribute => 'code_complet', model: 'Projet', in_csv: false do |task|
+    link_to task.projet.code_complet+ " " + task.projet.nom_code, projet_path(task.projet.id)
+
+  end
+    g.column name: 'Projet', attribute: 'code_complet', model: 'Projet', in_html: false  do |task|
+    task.projet.code_complet
+
+  end
+  g.column name: 'Désignation', attribute: 'designation', in_csv: false  do |task|
+    unless ( task == nil) then
+      unless task.projet.id_codification.to_i == 1 then
+        codif = Codification.find_by_id(task.code_planus)
+        unless codif == nil then
+        unless codif.planus == nil then
+        "client : " + task.designation + " Planus : " + codif.planus.to_s
+        end
+       end
+      else
+        unless task.code_planus.to_i == 0 then
+          link_to task.designation, controller: 'codification', action: 'recherche_des_items', id: task.code_planus
+        else
+          task.designation
+        end
+      end
+    end
+  end
+  g.column name: 'Désignation', attribute: 'designation', in_html: false  do |task|
+
+    unless ( task == nil) then
+      unless task.projet.id_codification.to_i == 1 then
+        codif = Codification.find_by_id(task.code_planus)
+        unless codif == nil then
+        unless codif.planus == nil then
+        "client : " + task.designation + " Planus : " + codif.planus.to_s
+        end
+       end
+      else
+
+          task.designation
+        
+      end
+    end
+  end
+
+        g.column name: 'Folio', attribute: 'revision', model: 'Folio' do |task|
+    task.folio.numero
+
+  end
+        g.column name: 'Révision', attribute: 'revision', model: 'Folio' do |task|
+    task.folio.revision
+
+  end
+    g.column name: 'Description 1', attribute: 'description1', filter_type: :range_two do |task|
+    task.description1
+
+  end
+    g.column name: 'Description 2', attribute: 'description2', filter_type: :range_two do |task|
+    task.description2
+  end
+      g.column name: 'Description 3', attribute: 'description3', filter_type: :range_two do |task|
+    task.description3
+  end
+  g.column name: 'Offre' do |t|
+    if t.prix_poid.exists? then
+      unless (t.date_modification == nil || t.date_creation == nil || t.date_modification == "" || t.date_creation == "" )then
+        if (Time.parse(t.date_modification) -Time.parse(t.date_creation) > 0) then
+
+          [link_to(Offre.find_by_id(t.prix_poid[0].id_offre).fournisseur.nom, offre_path(Offre.find_by_id(t.prix_poid[0].id_offre)), :title => "L'item a été modifié depuis sa création, attention à la validité de l'offre"), {style: 'background-color: rgb(255, 105, 104);', class: 'some-special-class'}]
+        end
+      else
+        link_to(Offre.find_by_id(t.prix_poid[0].id_offre).fournisseur.nom, offre_path(Offre.find_by_id(t.prix_poid[0].id_offre)))
+      end
+    end
+  end
+end -%>

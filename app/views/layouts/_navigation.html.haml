@@ -1,0 +1,47 @@
+%nav.navbar.navbar-static-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to root_path do
+        = image_tag("/logo_thyssen.png", height: '32')
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav= render 'layouts/navigation_links'
+      %ul.navbar-form.navbar-right
+        .form-group
+          .psearch.navbar-search
+            %input#typea.text{:autofocus => true, :placeholder => "Entrez un projet", :type => "text"}
+- if (params[:action] == 'show') && (params[:controller] == 'projets')
+  %nav.navbar.navbar-default.navbar-fixed-bottom.navbar-inverse.scrollspy{:role => 'navigation'}
+    .container
+      .navbar-header
+        %a.navbar-brand{:href => '#'}=@projet.code_complet
+      .collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li.active
+            %a{:href => '#1'} Description
+          %li
+            %a{:href => '#2'} Conditions
+          %li
+            %a{:href => '#7'} Utilités
+          %li
+            %a{:href => '#3'} Matières
+          %li
+            %a{:href => '#4'} Offres
+          %li
+            %a{:href => '#5'} Items
+          %li.dropdown
+            %a#navbarDrop1.dropdown-toggle{:href => '#', :data => {:toggle => 'dropdown'}} Combustible
+            %ul.dropdown-menu{:role => 'menu'}
+              %li
+                %a{:href =>'#61', :tabindex => '-1'} Gazeux
+              %li
+                %a{:href =>'#62', :tabindex => '-1'} Liquide
+              %li
+                %a{:href =>'#63', :tabindex => '-1'} Solide
+              %li
+                %a{:href =>'#64', :tabindex => '-1'} Autre
+

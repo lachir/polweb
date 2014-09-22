@@ -1,0 +1,92 @@
+- modal ||= false
+- remote = modal ? true : false
+= form_for([@projet, @projet.combustible_solide.build]) do |f|
+  .raw
+    .col-md-4
+      .form-group
+        = f.label :fonction, class: 'control-label'
+        %br/
+        = f.text_field :fonction, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :combustible_defaut_fr, class: 'control-label'
+        %br/
+        = f.text_field :combustible_defaut_fr, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :combustible_defaut_en, class: 'control-label'
+        %br/
+        = f.text_field :combustible_defaut_en, class: 'form-control'
+  .raw
+    .col-md-4
+      .form-group
+        = f.label :pci_defaut, class: 'control-label'
+        %br/
+        = f.text_field :pci_defaut, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :unite_pci, class: 'control-label'
+        %br/
+        = f.text_field :unite_pci, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :matieres_volatiles_defaut, class: 'control-label'
+        %br/
+        = f.text_field :matieres_volatiles_defaut, class: 'form-control'
+  .raw
+    .col-md-4
+      .form-group
+        = f.label :unite_matieres_volatiles, class: 'control-label'
+        %br/
+        = f.text_field :unite_matieres_volatiles, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :cendres_defaut, class: 'control-label'
+        %br/
+        = f.text_field :cendres_defaut, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :unite_cendres, class: 'control-label'
+        %br/
+        = f.text_field :unite_cendres, class: 'form-control'
+  .raw
+    .col-md-4
+      .form-group
+        = f.label :hardgrove_defaut, class: 'control-label'
+        %br/
+        = f.text_field :hardgrove_defaut, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :teneur_soufre_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_soufre_defaut, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :teneur_chlore_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_chlore_defaut, class: 'form-control'
+  .raw
+    .col-md-4
+      .form-group
+        = f.label :teneur_azote_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_azote_defaut, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :teneur_carbone_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_carbone_defaut, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :teneur_hydrogene_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_hydrogene_defaut, class: 'form-control'
+  .raw
+    .col-md-4
+      .form-group
+        = f.label :teneur_oxygene_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_oxygene_defaut, class: 'form-control'
+    .col-md-4
+      .actions
+        = f.submit 'Ok', class: 'btn btn-default'

@@ -1,0 +1,62 @@
+<%= grid(@liquides_grid) do |g|
+
+														g.column in_csv: false do |m|
+    link_to('<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  [:edit, @projet,m])   
+  end  
+  g.column in_csv: false do |m|
+  link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, [m.projet, m], method: :delete, data: { confirm: 'Are you sure?' }
+   end
+
+															g.column name: 'Fonction'  do |task| 
+																task.fonction
+															end
+															g.column name: 'Combustible' do |task| 
+																task.combustible_defaut_fr
+															end
+															g.column  name: 'Fuel' do |task| 
+																task.combustible_defaut_en
+															end
+															g.column  name: 'PCI' do |task| 
+																task.pci_defaut
+															end
+															g.column  name: 'Unité PCI' do |task| 
+																task.unite_pci
+															end
+
+															g.column  name: 'Teneur en soufre' do |task| 
+																task.teneur_soufre_defaut
+															end
+
+															g.column  name: 'Teneur en chlore' do |task| 
+																task.teneur_chlore_defaut
+															end
+
+															g.column  name: 'Teneur en Azote' do |task| 
+																task.teneur_azote_defaut
+															end
+															g.column  name: 'Viscosité' do |task| 
+																task.viscosite_defaut
+															end
+															g.column  name: 'Unité viscosité' do |task| 
+																task.unite_viscosite
+															end
+															g.column  name: 'Densité' do |task| 
+																task.densite
+															end
+															g.column  name: 'Unité densité' do |task| 
+																task.unite_densite
+															end
+															g.column  name: 'Teneur en carbone' do |task| 
+																task.teneur_carbone_defaut
+															end
+															g.column  name: 'Teneur en hydrogène' do |task| 
+																task.teneur_hydrogene_defaut
+															end
+															g.column  name: 'teneur en oxygène' do |task| 
+																task.teneur_oxygene_defaut						
+															end
+
+															g.blank_slate do
+															"Il n'y a pas de combustible"
+														end
+															end -%>

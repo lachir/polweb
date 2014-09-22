@@ -1,0 +1,5 @@
+%h3 Importer les matières pour le projet #{@projet_qui_recoit.code_complet + @projet_qui_recoit.nom_code}
+= form_tag(action="importer_matieres") do
+	%h4 Depuis le projet
+	= select_tag "IdInput", options_for_select(@projets.order(code_complet: :asc).collect{ |u| [u.code_complet + ' '+ u.nom_code, u.id] })
+	= submit_tag

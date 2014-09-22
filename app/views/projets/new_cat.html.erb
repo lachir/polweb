@@ -1,0 +1,6 @@
+<h2>Nouvelle catégorie de projet</h2>
+<div class="container"><%= simple_form_for(@categorie_projet), :class => 'form-inline' do |f| %>
+<%= f.label 'Description' %>
+<%= f.text_field :description %>
+<%= f.submit "Ok", class: 'btn btn-large btn-primary' %>
+<% end %></div>

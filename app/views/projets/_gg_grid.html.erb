@@ -1,0 +1,75 @@
+	<%= grid(@gazeux_grid) do |g|
+		g.column in_csv: false do |m|
+			link_to('<i class="glyphicon glyphicon-pencil"></i>'.html_safe,  [:edit, @projet,m])
+
+		end  
+		g.column in_csv: false do |m|
+
+
+
+			link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, [m.projet, m], method: :delete, data: { confirm: 'Are you sure?' }
+		end
+		g.column name: 'Fonction'  do |task| 
+			task.fonction
+		end
+		g.column name: 'Combustible' do |task| 
+			task.combustible_defaut_fr
+		end
+		g.column  name: 'Fuel' do |task| 
+			task.combustible_defaut_en
+		end
+		g.column  name: 'PCI' do |task| 
+			task.pci_defaut
+		end
+		g.column  name: 'Unité PCI' do |task| 
+			task.unite_pci
+		end
+		g.column  name: 'Méthane' do |task| 
+			task.methane
+		end
+		g.column  name: 'Ethylene' do |task| 
+			task.ethylene
+		end
+		g.column  name: 'Ethane' do |task| 
+			task.ethane
+		end
+		g.column  name: 'Propylène' do |task| 
+			task.propylene
+		end
+		g.column  name: 'Propane' do |task| 
+			task.propane
+		end
+		g.column  name: 'Butylène' do |task| 
+			task.butylene						
+		end
+		g.column  name: 'Butane' do |task| 
+			task.butane						
+		end
+		g.column  name: 'Pentane' do |task| 
+			task.pentane						
+		end
+		g.column  name: 'Hydrogène' do |task| 
+			task.hydrogene						
+		end
+		g.column  name: 'Oxyde de carbone' do |task| 
+			task.oxyde_carbone						
+		end
+		g.column  name: 'Anhydride carbonique' do |task| 
+			task.anhydride_carbonique						
+		end
+		g.column  name: 'Azote' do |task| 
+			task.azote						
+		end
+		g.column  name: 'Oxygène' do |task| 
+			task.oxygene						
+		end
+		g.column  name: 'Densité' do |task| 
+			task.densite						
+		end
+		g.column  name: 'Unité densité' do |task| 
+			task.unite_densite						
+		end
+		g.blank_slate do
+			"Il n'y a pas de combustible"
+		end
+	end -%>

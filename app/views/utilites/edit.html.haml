@@ -1,0 +1,13 @@
+%h1 Edition des utilités du projet
+.container
+	- unless session[:ecriture]
+		= link_to 'S\'authentifier', new_session_path 
+	- else
+		= render 'form'
+.row
+	.col-md-1
+		= link_to projets_path, class: "btn btn-default" do
+			%i.glyphicon.glyphicon-home
+	.col-md-1
+		= link_to [@projet,@utilite], class: "btn btn-default", method: :delete, data: { confirm: 'Are you sure?' } do
+			%i.glyphicon.glyphicon-trash

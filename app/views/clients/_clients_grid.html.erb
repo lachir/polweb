@@ -1,0 +1,38 @@
+<%= grid(@clients_grid) do |g|
+
+
+  g.column name: 'Nom', attribute: 'nom', in_csv: false do |task|
+
+    unless task.nom == nil then link_to task.nom, client_path(task.id) end
+  end
+
+  g.column name: 'Nom', attribute: 'nom', in_html: false do |task|
+
+    unless task.nom == nil then task.nom end
+  end
+
+
+  g.column name: 'Raison sociale', attribute: 'raison_sociale' do |task|
+    task.raison_sociale
+  end
+
+  g.column name: 'Adresse' do |task|
+    task.adresse
+  end
+   g.column  in_csv: false do |task|
+    link_to('<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, client_path(task))
+  end
+
+
+  g.column in_csv: false do |task|
+    link_to('<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_client_path(task))
+
+  end  
+
+  g.column in_csv: false do |task|
+
+  link_to('<i class="glyphicon glyphicon-trash"></i>'.html_safe, client_path(task), method: :delete, data: { confirm: 'Are you sure?' })
+   end
+
+
+end -%>

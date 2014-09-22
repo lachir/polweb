@@ -1,0 +1,26 @@
+= form_for @projet do |f|
+  %li
+    Code complet :#{@projet.code_complet}
+  %li
+    %span.badge= @projet.type.type
+  %li
+    Descriptif : #{@projet.descriptif}
+  %li
+    = f.label "Type de projet"
+    = f.collection_select :id_typeprojet, TypeProjet.all, :id, :Description
+    = link_to('<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_type_projet_path)
+  %li
+    = f.label "Catégorie de projet"
+    = f.collection_select :id_categorieprojet, CategorieProjet.all, :id, :Description
+    = link_to('<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_categorie_projet_path)
+  %li
+    Client : #{unless @projet.client == nil then @projet.client.nom end}
+  %li
+    = f.label "Débit"
+    = f.text_field :debit
+  - unless session[:ecriture]
+    = link_to 'S\'authentifier', new_session_path
+  - else
+    = link_to 'Spécifier un nouvel emplacement de flowsheet', '/migration'
+    %br
+    = f.submit "Sauvegarder les modifications", class: 'btn btn-xs btn-primary'

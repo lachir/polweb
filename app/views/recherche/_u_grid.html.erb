@@ -1,0 +1,71 @@
+<%= grid(@ugrid) do |g|
+g.column name: 'Projet'.humanize, attribute: 'code_complet', model: 'Projet' do |task|
+	task.projet.code_complet
+end
+g.column name: 'temp_eau_refroid'.humanize, attribute: 'temp_eau_refroid' do |task|
+	task.temp_eau_refroid
+end
+g.column name: 'unite_temp_eau'.humanize, attribute: 'unite_temp_eau' do |task|
+	task.unite_temp_eau
+end
+g.column name: 'pression_eau_refroid'.humanize, attribute: 'pression_eau_refroid' do |task|
+	task.pression_eau_refroid
+end
+g.column name: 'unite_pression_eau'.humanize, attribute: 'unite_pression_eau' do |task|
+	task.unite_pression_eau
+end
+g.column name: 'qualite_ph'.humanize, attribute: 'qualite_ph' do |task|
+	task.qualite_ph
+end
+g.column name: 'qualite_suspension'.humanize, attribute: 'qualite_suspension' do |task|
+	task.qualite_suspension
+end
+g.column name: 'unite_solide_susp'.humanize, attribute: 'unite_solide_susp' do |task|
+	task.unite_solide_susp
+end
+g.column name: 'qualite_granul'.humanize, attribute: 'qualite_granul' do |task|
+	task.qualite_granul
+end
+g.column name: 'unite_granul'.humanize, attribute: 'unite_granul' do |task|
+	task.unite_granul
+end
+g.column name: 'qualite_solide_dis'.humanize, attribute: 'qualite_solide_dis' do |task|
+	task.qualite_solide_dis
+end
+g.column name: 'unite_solide_dis'.humanize, attribute: 'unite_solide_dis' do |task|
+	task.unite_solide_dis
+end
+g.column name: 'qualite_durete'.humanize, attribute: 'qualite_durete' do |task|
+	task.qualite_durete
+end
+g.column name: 'unite_durete'.humanize, attribute: 'unite_durete' do |task|
+	task.unite_durete
+end
+g.column name: 'qualite_fer'.humanize, attribute: 'qualite_fer' do |task|
+	task.qualite_fer
+end
+g.column name: 'unite_fer'.humanize, attribute: 'unite_fer' do |task|
+	task.unite_fer
+end
+g.column name: 'qualite_manganese'.humanize, attribute: 'qualite_manganese' do |task|
+	task.qualite_manganese
+end
+g.column name: 'unite_manganese'.humanize, attribute: 'unite_manganese' do |task|
+	task.unite_manganese
+end
+g.column name: 'air_pression'.humanize, attribute: 'air_pression' do |task|
+	task.air_pression
+end
+g.column name: 'unite_pression'.humanize, attribute: 'unite_pression' do |task|
+	task.unite_pression
+end
+g.column name: 'air_granul_poussiere'.humanize, attribute: 'air_granul_poussiere' do |task|
+	task.air_granul_poussiere
+end
+g.column name: 'unite_granul_poussiere'.humanize, attribute: 'unite_granul_poussiere' do |task|
+	task.unite_granul_poussiere
+end
+g.column name: 'classe_norme'.humanize, attribute: 'classe_norme' do |task|
+	task.classe_norme
+end
+end -%>

@@ -1,0 +1,45 @@
+<%= grid(@locales_grid) do |g|
+
+	g.column in_csv: false do |m|
+		link_to('<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_condition_path(m))
+	end  
+	g.column in_csv: false do |m|
+		link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, condition_path(m), method: :delete, data: { confirm: 'Are you sure?' }
+	end
+	g.column name: 'Pays'  do |task| 
+		task.pays
+	end
+	g.column name: 'Site' do |task| 
+		task.site
+	end
+	g.column  name: 'Altitude' do |task| 
+		task.altitude
+	end
+	g.column  name: 'Latitude' do |task| 
+		task.latitude
+	end
+	g.column  name: 'Longitude' do |task| 
+		task.longitude
+	end
+	g.column  name: 'Température max' do |task| 
+		task.temperature_max
+	end
+	g.column  name: 'Température min' do |task| 
+		task.temperature_min
+	end
+	g.column  name: 'Température max équip' do |task| 
+		task.temperature_max_equip
+	end
+	g.column  name: 'Température min équip' do |task| 
+		task.temperature_min_equip
+	end
+	g.column  name: 'Humidité max' do |task| 
+		task.humidite_max
+	end
+	g.column  name: 'Humidité min' do |task| 
+		task.humidite_min						
+	end
+	g.column  name: 'Précipitations' do |task| 
+		task.precipitation						
+	end
+	end -%> 

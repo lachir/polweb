@@ -1,0 +1,17 @@
+.col-md-6
+	= simple_form_for(@condition) do |f|
+		= f.error_notification
+		.form-inputs
+			= f.input :pays, as: :country, placeholder: 'Pays', prompt: 'Pays'
+			= f.input :site, placeholder: 'site'
+			= f.input :altitude, placeholder: 'altitude'
+			= f.input :longitude, placeholder: 'longitude'
+			= f.input :temperature_max, placeholder: 'temperature_max'
+			= f.input :temperature_min, placeholder: 'temperature_min'
+			= f.input :temperature_max_equip, placeholder: 'temperature_max_equip'
+			= f.input :temperature_min_equip, placeholder: 'temperature_min_equip'
+			= f.input :humidite_max, placeholder: 'humidite_max'
+			= f.input :humidite_min, placeholder: 'humidite_min'
+			= f.input :precipitation, placeholder: 'precipitation'
+		.form-actions
+			= f.button :submit

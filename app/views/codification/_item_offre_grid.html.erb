@@ -1,0 +1,43 @@
+<%= grid(@items_offre_grid) do |g|
+
+  g.column name: 'Projet', attribute: 'code_complet', model: 'Projet' do |task|
+    link_to task.projet.code_complet, projet_path(task.projet.id)
+
+  end
+    g.column name: 'Désignation', attribute: 'designation' do |task|
+    unless task.projet.id_codification == "1"
+     "Code client : " + task.designation + " Planus : " + Codification.find_by_id(task.code_planus).planus
+   else
+     task.designation
+     end
+ end
+
+    g.column name: 'Description 1', attribute: 'description1' do |task|
+    task.description1
+
+  end
+    g.column name: 'Description 2', attribute: 'description2' do |task|
+    task.description2
+  end
+      g.column name: 'Description 3', attribute: 'description3' do |task|
+    task.description3
+  end
+  g.column name: 'Offre par fournisseur', attribute: 'id_offre', model: 'PrixPoid', in_csv: false do |task|
+    a = []
+    task.prix_poid.collect.each do |p|
+    a.push(link_to Fournisseur.find_by_id(p.offre.id_fournisseur).nom, offre_path(p.id_offre))
+    end
+    raw a.join(" - ")
+     #groupe les fournisseurs dans une seule case
+
+    end
+      g.column name: 'Offre par fournisseur', attribute: 'id_offre', model: 'PrixPoid', in_html: false do |task|
+    a = []
+    task.prix_poid.collect.each do |p|
+    a.push( Fournisseur.find_by_id(p.offre.id_fournisseur).nom)
+    end
+    raw a.join(" - ")
+     #groupe les fournisseurs dans une seule case
+
+    end
+end -%>

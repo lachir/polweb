@@ -1,0 +1,11 @@
+<div class="well">
+  <% unless session[:ecriture] %>
+    <%= link_to 'S\'authentifier', new_session_path %>
+  <% else %>
+    <%= link_to('Nouvelle offre', new_offre_path) %>
+  <% end %>
+</div>
+
+
+<%= render 'offre_grid' %>
+<script> $('.link').tooltip() </script>

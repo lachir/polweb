@@ -1,0 +1,13 @@
+.container
+	.jumbotron
+		%h3 Nom : #{@fournisseur.nom}
+		%h3 Pays : #{@fournisseur.pays}
+
+		= link_to edit_fournisseur_path(@fournisseur), class: "btn btn-default" do
+			%i.glyphicon.glyphicon-pencil
+		= link_to fournisseurs_path, class: "btn btn-default" do
+			%i.glyphicon.glyphicon-home
+		= link_to fournisseur_path(@fournisseur), class: "btn btn-default", method: :delete, data: { confirm: 'Are you sure?' } do
+			%i.glyphicon.glyphicon-trash
+	%h3 Liste des offres du fournisseur
+	= render 'grid_offre'

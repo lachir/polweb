@@ -1,0 +1,25 @@
+<%= grid(@items_grid) do |g|
+
+  g.column name: 'Projet', attribute: 'code_complet', model: 'Projet' do |task|
+    link_to task.projet.code_complet, projet_path(task.projet.id)
+
+  end
+    g.column name: 'Désignation', attribute: 'designation' do |task|
+    unless task.projet.id_codification == "1"
+     "Code client : " + task.designation + " Planus : " + Codification.find_by_id(task.code_planus).planus
+   else
+     task.designation
+     end
+ end
+
+    g.column name: 'Description 1', attribute: 'description1', filter_type: :range do |task|
+    task.description1
+
+  end
+    g.column name: 'Description 2', attribute: 'description2', filter_type: :range do |task|
+    task.description2
+  end
+      g.column name: 'Description 3', attribute: 'description3', filter_type: :range do |task|
+    task.description3
+  end
+end -%>

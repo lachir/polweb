@@ -1,0 +1,92 @@
+- modal ||= false
+- remote = modal ? true : false
+= form_for([@projet, @projet.combustible_liquide.build]) do |f|
+  .row
+    .col-md-4
+      .form-group
+        = f.label :fonction, class: 'control-label'
+        %br/
+        = f.text_field :fonction, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :combustible_defaut_fr, class: 'control-label'
+        %br/
+        = f.text_field :combustible_defaut_fr, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :combustible_defaut_en, class: 'control-label'
+        %br/
+        = f.text_field :combustible_defaut_en, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :pci_defaut, class: 'control-label'
+        %br/
+        = f.text_field :pci_defaut, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :unite_pci, class: 'control-label'
+        %br/
+        = f.text_field :unite_pci, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :teneur_soufre_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_soufre_defaut, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :teneur_chlore_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_chlore_defaut, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :teneur_azote_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_azote_defaut, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :viscosite_defaut, class: 'control-label'
+        %br/
+        = f.text_field :viscosite_defaut, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :unite_viscosite, class: 'control-label'
+        %br/
+        = f.text_field :unite_viscosite, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :teneur_asphaltenes_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_asphaltenes_defaut, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :densite, class: 'control-label'
+        %br/
+        = f.text_field :densite, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :unite_densite, class: 'control-label'
+        %br/
+        = f.text_field :unite_densite, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :teneur_carbone_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_carbone_defaut, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :teneur_hydrogene_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_hydrogene_defaut, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :teneur_oxygene_defaut, class: 'control-label'
+        %br/
+        = f.text_field :teneur_oxygene_defaut, class: 'form-control'
+    .col-md-4
+      .actions
+        = f.submit 'Ok', class: 'btn btn-default'

@@ -1,0 +1,123 @@
+= simple_form_for([@projet, @utilite]) do |f|
+  = f.error_notification
+  .row
+    .col-md-4
+      .form-group
+        = f.label :temp_eau_refroid, class: 'control-label'
+        %br
+        = f.text_field :temp_eau_refroid, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :unite_temp_eau, class: 'control-label'
+        %br
+        = f.text_field :unite_temp_eau, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :pression_eau_refroid, class: 'control-label'
+        %br
+        = f.text_field :pression_eau_refroid, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :unite_pression_eau, class: 'control-label'
+        %br
+        = f.text_field :unite_pression_eau, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :qualite_ph, class: 'control-label'
+        %br
+        = f.text_field :qualite_ph, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :qualite_suspension, class: 'control-label'
+        %br
+        = f.text_field :qualite_suspension, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :unite_solide_susp, class: 'control-label'
+        %br
+        = f.text_field :unite_solide_susp, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :qualite_granul, class: 'control-label'
+        %br
+        = f.text_field :qualite_granul, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :unite_granul, class: 'control-label'
+        %br
+        = f.text_field :unite_granul, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :qualite_solide_dis, class: 'control-label'
+        %br
+        = f.text_field :qualite_solide_dis, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :unite_solide_dis, class: 'control-label'
+        %br
+        = f.text_field :unite_solide_dis, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :qualite_durete, class: 'control-label'
+        %br
+        = f.text_field :qualite_durete, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :unite_durete, class: 'control-label'
+        %br
+        = f.text_field :unite_durete, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :qualite_fer, class: 'control-label'
+        %br
+        = f.text_field :qualite_fer, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :unite_fer, class: 'control-label'
+        %br
+        = f.text_field :unite_fer, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :qualite_manganese, class: 'control-label'
+        %br
+        = f.text_field :qualite_manganese, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :unite_manganese, class: 'control-label'
+        %br
+        = f.text_field :unite_manganese, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :air_pression, class: 'control-label'
+        %br
+        = f.text_field :air_pression, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :unite_pression, class: 'control-label'
+        %br
+        = f.text_field :unite_pression, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :air_granul_poussiere, class: 'control-label'
+        %br
+        = f.text_field :air_granul_poussiere, class: 'form-control'
+    .col-md-4
+      .form-group
+        = f.label :unite_granul_poussiere, class: 'control-label'
+        %br
+        = f.text_field :unite_granul_poussiere, class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        = f.label :classe_norme, class: 'control-label'
+        %br
+        = f.text_field :classe_norme, class: 'form-control'
+    .col-md-4
+      .form-actions
+        = f.button :submit

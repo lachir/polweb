@@ -1,0 +1,26 @@
+.col-md-6
+	= simple_form_for([@projet, @combustible_gazeux], wrapper: :vertical_form) do |f|
+		= f.error_notification
+		.form-inputs
+			= f.input :fonction, :placeholder => 'Fonction'
+			= f.input :combustible_defaut_fr, :placeholder => 'Combustible fr'
+			= f.input :combustible_defaut_en, :placeholder => 'Combustible en'
+			= f.input :pci_defaut, :placeholder => 'Pci'
+			= f.input :unite_pci, :placeholder => 'Unité pci'
+			= f.input :methane, :placeholder => 'Méthane'
+			= f.input :ethylene, :placeholder => 'Éthylene'
+			= f.input :ethane, :placeholder => 'Éthane'
+			= f.input :propylene, :placeholder => 'Propylène'
+			= f.input :propane, :placeholder => 'Propane'
+			= f.input :butylene, :placeholder => 'Butylène'
+			= f.input :butane, :placeholder => 'Butane'
+			= f.input :pentane, :placeholder => 'Pentane'
+			= f.input :hydrogene, :placeholder => 'Hydrogène'
+			= f.input :oxyde_carbone, :placeholder => 'Oxyde de carbone'
+			= f.input :anhydride_carbonique, :placeholder => 'Anhydride carbonique'
+			= f.input :azote, :placeholder => 'Azote'
+			= f.input :oxygene, :placeholder => 'Oxygene'
+			= f.input :densite, :placeholder => 'Densité'
+			= f.input :unite_densite, :placeholder => 'Unité densité'
+		.form-actions			
+			= f.button :submit

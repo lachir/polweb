@@ -1,0 +1,24 @@
+<%= grid(@offre) do |g|
+ g.column name: 'Projet', attribute: 'code_complet', model: 'Projet'  do |m|
+link_to m.projet.code_complet, projet_path(m.projet.id)
+    end
+
+ g.column name: 'Numéro d\'offre', attribute: 'num_offre', model: 'Offre' do |m|
+ 	if m.num_offre == ''
+ 		link_to 'offre', offre_path(m.id)
+ 	else
+ 	link_to m.num_offre,  offre_path(m.id)
+ 	end
+ end
+g.column name: 'Date de l\'offre', attribute: 'date_offre', model: 'Offre'
+g.column name: 'Commentaire', attribute: 'commentaire', model: 'Offre'
+g.column name: 'Contient' do |m|
+	ta = []
+	PrixPoid.where('id_offre =?', m.id).each do |o|
+		ta.push(Item.find_by_id(o.id_item).designation.slice(/[A-Z]{2}/))
+	end
+ta.uniq!
+ta.join(" - ")
+end
+
+end -%>

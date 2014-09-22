@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Id | Nom | Raison sociale | Adresse</div>
+	<div class="panel-body">
+		<%= @client.id.to_s + " | " + @client.nom.to_s + " | " + @client.raison_sociale + " | " + @client.adresse %>
+		<%=  link_to('<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_client_path(@client)) %>
+		<%=  link_to('<i class="glyphicon glyphicon-trash"></i>'.html_safe, client_path(@client), method: :delete, data: { confirm: 'Are you sure?' }) %>
+	</div>
+</div>
+
+<div class='container'>
+<%= grid(@projet) do |g|
+
+  g.column name: 'Code projet', attribute: 'code_complet', model: 'Projet' do |task|
+    link_to(task.code_complet, projet_path(task))
+  end  
+    g.column name: 'Site' do |p|
+  	unless p.condition == nil then p.condition.site end
+  end
+     g.column name: 'Pays' do |p|
+  	unless p.condition == nil then p.condition.pays end
+  end 
+  g.column name: 'Débit', attribute: 'debit', model: 'Projet'
+  
+	g.column name: 'Descriptif'  do |p|
+ 	unless p.type_projet == nil then p.type_projet.Description end
+ end
+
+   
+end -%>
+
+</div>
