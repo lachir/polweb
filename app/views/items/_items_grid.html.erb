@@ -45,12 +45,14 @@
   end
 
         g.column name: 'Folio', attribute: 'revision', model: 'Folio' do |task|
+        unless task.folio == nil then
     task.folio.numero
-
+  end
   end
         g.column name: 'Révision', attribute: 'revision', model: 'Folio' do |task|
+        unless task.folio == nil then
     task.folio.revision
-
+end
   end
     g.column name: 'Description 1', attribute: 'description1', filter_type: :range_two do |task|
     task.description1
