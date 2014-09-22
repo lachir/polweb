@@ -7,28 +7,28 @@ Adauth.configure do |c|
 	#
 	# If you don't know your domain contact your IT support,
 	# it will be the DNS suffix applied to your machines
-	c.domain = "polmed.fr"
+	c.domain = ""
 
 	# Adauth needs a query user to interact with the domain.
 	# This user can be anything with domain access
 	#
 	# If Adauth doesn't work contact your IT support and make sure this account has full query access
-	c.query_user = "ChirisC"
-	c.query_password = "Yolo121sq800a7"
+	c.query_user = ""
+	c.query_password = ""
 
 	# The IP address or Hostname of a DC (Domain Controller) on your network
 	#
 	# This could be anything and probably wont be 127.0.0.1
 	#
 	# Again contact your IT Support if you can't work this out
-	c.server = "kp05s102.polmed.fr"
+	c.server = ""
 
 	# The LDAP base of your domain/intended users
 	#
 	# For all users in your domain the base would be:
 	# dc=example, dc=com
 	# OUs can be prepeneded to restrict access to your app
-	c.base = "dc=polmed, dc=fr"
+	c.base = ""
 
 	# The port isn't always needed as Adauth defaults to 389 the LDAP Port
 	#
